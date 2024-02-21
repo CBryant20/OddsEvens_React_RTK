@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import numberReducer from "./numberSlice";
+import numberReducer from "../features/numberSlice";
 
 const store = configureStore({
   reducer: {
