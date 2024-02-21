@@ -1,8 +1,5 @@
-# React + Vite
+# Workshop - Odds and Events
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+In this workshop, you'll continue to get more practice working with events and event handlers. The goal is to create an app that allows a user to enter a number which gets placed into a number bank. The user can then sort the numbers in the bank into one of two categories: odd or even.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Preview of the app: a user types 9 into the input field and clicks a button to add it to a number bank. The user then clicks the "Sort 1" button. The 9 is moved from the number bank into the "odd" category.](odds_and_events-example_flow.png)
