@@ -15,18 +15,24 @@ const numberSlice = createSlice({
     },
     sortOne: (state) => {
       const nums = state.storedNumberBank.shift();
-      if (nums % 2 === 0) {
-        state.storedEvens.push(nums);
-      } else {
-        state.storedOdds.push(nums);
+      if (nums) {
+        if (nums % 2 === 0) {
+          state.storedEvens.push(nums);
+          state.storedEvens.sort((a, b) => a - b);
+        } else {
+          state.storedOdds.push(nums);
+          state.storedOdds.sort((a, b) => a - b);
+        }
       }
     },
     sortAll: (state) => {
       for (const nums of state.storedNumberBank) {
         if (nums % 2 === 0) {
           state.storedEvens.push(nums);
+          state.storedEvens.sort((a, b) => a - b);
         } else {
           state.storedOdds.push(nums);
+          state.storedOdds.sort((a, b) => a - b);
         }
       }
       state.storedNumberBank = [];
