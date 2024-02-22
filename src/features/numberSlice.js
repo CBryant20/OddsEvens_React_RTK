@@ -1,40 +1,44 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = {
+  storedNumberBank: [],
+  storedOdds: [],
+  storedEvens: [],
+};
+
 const numberSlice = createSlice({
   name: "number",
-  initialState: {
-    input: "",
-    storedNumberBank: [],
-    storedOdds: [],
-    storedEvens: [],
-  },
-  reducer: {
+  initialState,
+  reducers: {
     addNumber: (state, { payload }) => {
-      payload = +state.input;
       state.storedNumberBank.push(payload);
-      state.input = "";
     },
-    sortOne: (state, { payload }) => {
-      payload = state.storedNumberBank.shift();
-      if (payload % 2 === 0) {
-        state.storedEvens.push(payload);
+    sortOne: (state) => {
+      const nums = state.storedNumberBank.shift();
+      if (nums % 2 === 0) {
+        state.storedEvens.push(nums);
       } else {
-        state.storedOdds.push(payload);
+        state.storedOdds.push(nums);
       }
     },
-    sortAll: (state, { payload }) => {
-      while (state.storedNumberBank.length) {
-        if (payload % 2 === 0) {
-          state.storedEvens.push(payload);
+    sortAll: (state) => {
+      for (const nums of state.storedNumberBank) {
+        if (nums % 2 === 0) {
+          state.storedEvens.push(nums);
         } else {
-          state.storedOdds.push(payload);
+          state.storedOdds.push(nums);
         }
       }
+      state.storedNumberBank = [];
     },
   },
 });
 
 export const { addNumber, sortOne, sortAll } = numberSlice.actions;
+
+export const selectedNumBank = (store) => store.number.storedNumberBank;
+export const selectOdds = (store) => store.number.storedOdds;
+export const selectEvens = (store) => store.number.storedEvens;
 
 const numberReducer = numberSlice.reducer;
 export default numberReducer;
