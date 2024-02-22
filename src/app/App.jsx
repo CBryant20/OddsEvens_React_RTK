@@ -6,7 +6,7 @@ const App = () => {
   return (
     <>
       <main>
-        <h1>Charles Bank</h1>
+        <h1>Charles' Bank</h1>
         <NumberBankNums />
         <SortedNums />
       </main>
